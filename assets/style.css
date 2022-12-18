@@ -58,6 +58,11 @@ header {
   text-align: center;
 }
 
+div.pass-criteria {
+  margin: 25px 0px 10px 0px;
+  display: inline-block;
+}
+
 .card-footer::before {
   content: " ";
   display: block;
