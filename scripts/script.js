@@ -12,11 +12,16 @@
 // Targets the button element in HTML
 var generateBtn = document.querySelector("#generate");
 
+// Add event listener to generate button or to the button element
+// User selects the button and calls the generatePassword() function
+generateBtn.addEventListener("click", writePassword);
+
 // Declare string with characters to include in password generator
 var numberChar = "0123456789";
 var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowerChar = "abcdefghijklmnopqrstuvwxyz";
 var specialChar = "!@#$%^&*()";
+var totalChar = []; 
 
 // Convert strings into an Array.
 var numberArr = numberChar.split('');
@@ -35,13 +40,28 @@ function writePassword() {
 
 function generatePassword() {
     var userInput = prompt("Pick a number from 8 and up to 128 to specify length of password.");
-  if (userInput >= 8 && userInput <= 128) {
+    if (userInput >= 8 && userInput <= 128) {
      /* Prompts user for password requirements here if condition is TRUE */ 
-    var includeNum = confirm("Include Numbers?");
-    var includeUpper = confirm("Include Uppercase?"); 
-    var includeLower = confirm("Include Lowercase?");
-    var includeSym = confirm("Include Special characters?");
+
+    if (confirm("Include Numbers?")) {
+      totalChar = totalChar.concat(numberArr);
+    }
+
+    if (confirm("Include Uppercase?")) {
+      totalChar = totalChar.concat(upperCharArr);
+    }
+
+    if (confirm("Include Lowercase?")) {
+      totalChar = totalChar.concat(lowerCharArr);
+    }
+
+    if (confirm("Include Special Characters?")) {
+      totalChar = totalChar.concat(specialCharArr);
+    }
+    return totalChar; 
+
   }
+
 
   else {
     /* If the user selects a number not within the specified range, 
@@ -50,9 +70,5 @@ function generatePassword() {
     alert("The number does NOT fall within in range. Please try again.");
     generatePassword();
   }
-  return `Your password is generated here!`;
-}
 
-// Add event listener to generate button or to the button element
-// User selects the button and calls the generatePassword() function
-generateBtn.addEventListener("click", writePassword);
+}
