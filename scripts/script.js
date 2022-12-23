@@ -16,18 +16,15 @@ var generateBtn = document.querySelector("#generate");
 // User selects the button and calls the generatePassword() function
 generateBtn.addEventListener("click", writePassword);
 
-// Declare string with characters to include in password generator
-var numberChar = "0123456789";
-var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var lowerChar = "abcdefghijklmnopqrstuvwxyz";
-var specialChar = "!@#$%^&*()";
+// Declare several character arrays that you want to include for the criteria.
+var numberChar = ['0','1','2','3','4','5','6','7','8','9'];
+var upperChar = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+var lowerChar = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w', 'x','y','z'];
+var specialChar = ['!','@','#','$','%','^', '&','*','(',')'];
 var totalChar = []; 
 
-// Convert strings into an Array.
-var numberArr = numberChar.split('');
-var upperCharArr = upperChar.split('');
-var lowerCharArr = lowerChar.split('');
-var specialCharArr = specialChar.split(''); 
+
+
 
 
 /* Calls the generatePassword() function and stores data into password variable 
@@ -39,26 +36,32 @@ function writePassword() {
 }
 
 function generatePassword() {
+
     var userInput = prompt("Pick a number from 8 and up to 128 to specify length of password.");
+
     if (userInput >= 8 && userInput <= 128) {
      /* Prompts user for password requirements here if condition is TRUE */ 
 
     if (confirm("Include Numbers?")) {
-      totalChar = totalChar.concat(numberArr);
+      totalChar = totalChar.concat(numberChar);
     }
 
     if (confirm("Include Uppercase?")) {
-      totalChar = totalChar.concat(upperCharArr);
+      totalChar = totalChar.concat(upperChar);
     }
 
     if (confirm("Include Lowercase?")) {
-      totalChar = totalChar.concat(lowerCharArr);
+      totalChar = totalChar.concat(lowerChar);
     }
 
     if (confirm("Include Special Characters?")) {
-      totalChar = totalChar.concat(specialCharArr);
+      totalChar = totalChar.concat(specialChar);
     }
-    return totalChar; 
+
+    for (var i = 0; i <= userInput.length; i++) {
+      return totalChar[Math.floor(Math.random() * userInput.length)];
+    }
+
 
   }
 
