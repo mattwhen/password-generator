@@ -35,9 +35,10 @@ function writePassword() {
   passwordText.value = password;
 }
 
+
 function generatePassword() {
 
-    var userInput = prompt("Pick a number from 8 and up to 128 to specify length of password.");
+    var userInput = parseInt(prompt("Pick a number from 8 and up to 128 to specify length of password."));
 
     if (userInput >= 8 && userInput <= 128) {
      /* Prompts user for password requirements here if condition is TRUE */ 
@@ -57,14 +58,7 @@ function generatePassword() {
     if (confirm("Include Special Characters?")) {
       totalChar = totalChar.concat(specialChar);
     }
-
-    for (var i = 0; i <= userInput.length; i++) {
-      return totalChar[Math.floor(Math.random() * userInput.length)];
-    }
-
-
   }
-
 
   else {
     /* If the user selects a number not within the specified range, 
@@ -74,4 +68,13 @@ function generatePassword() {
     generatePassword();
   }
 
+  var passIndex = '';
+  for (var i = 1; i <= userInput; i++) {
+    var indexRandom = Math.floor(Math.random() * totalChar.length);
+   passIndex = passIndex + totalChar[indexRandom];
+    console.log(`This is within inside the for loop: ${passIndex}`)
+  }
+
+console.log(`This is outside of the for loop: ${passIndex}`);
+return passIndex; 
 }
