@@ -72,7 +72,7 @@ function generatePassword() {
   for (var i = 1; i <= userInput; i++) {
     var indexRandom = Math.floor(Math.random() * totalChar.length);
    passIndex = passIndex + totalChar[indexRandom];
-    console.log(`This is within inside the for loop: ${passIndex}`)
+    console.log(`This is inside the for loop: ${passIndex}`)
   }
 
 console.log(`This is outside of the for loop: ${passIndex}`);
