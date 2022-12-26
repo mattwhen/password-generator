@@ -20,3 +20,7 @@ To generate a secure password, simply click on the "Generate Password" button an
 
 ## Video Demonstration: 
 
+
+
+https://user-images.githubusercontent.com/76631936/209562527-c65c7cf0-4e43-4b5c-bbf8-377a132f1864.mp4
+
