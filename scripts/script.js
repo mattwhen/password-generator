@@ -68,6 +68,11 @@ function generatePassword() {
     generatePassword();
   }
 
+  /* Create a for loop that randomly searches through the totalChar index that includes
+  all of the characters selected in the password criteria and selects a single character. 
+  It then assigns that character to the passIndex string. It will continue doing this 
+  while the previous character still exists in the string, until the condition is finally met 
+  which is, the length of the password. */ 
   var passIndex = '';
   for (var i = 1; i <= userInput; i++) {
     var indexRandom = Math.floor(Math.random() * totalChar.length);
